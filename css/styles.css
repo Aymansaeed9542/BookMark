@@ -264,6 +264,9 @@ h2 {
     padding: 1rem;
     border-bottom: 1px solid #0e4470;
 }
+.table tr {
+    display: table-row;
+}
 
 button {
     border: none;
@@ -318,4 +321,41 @@ button:hover {
 
 button:active span::before {
     background: #2751cd;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.close-btn {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.d-none {
+    display: none !important;
 }

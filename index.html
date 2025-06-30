@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    
+
     <div class="container d-flex flex-column justify-content-center align-items-center py-5">
         <h1 class="heading1 py-3 position-relative text-center">Bookmarker</h1>
         <div class="bookmarkBody w-100">
@@ -28,17 +28,17 @@
                     <i class="fa-solid fa-bookmark"></i>
                     Site Name
                 </label>
-                <input type="email" class="form-control" id="siteName" placeholder="Enter your site name">
+                <input type="email" class="form-control " id="siteName" placeholder="Enter your site name">
             </div>
             <div class="inputField d-flex flex-column">
                 <label for="siteURL">
                     <i class="fa-solid fa-bookmark"></i>
                     Site URL
                 </label>
-                <input type="email" class="form-control" id="siteURL" placeholder="Enter your site URL">
+                <input type="email" class="form-control " id="siteURL" placeholder="Enter your site URL">
             </div>
             <div class="btnContainer d-flex justify-content-center align-items-center">
-                <button class="btn">
+                <button onclick="addBookmark()" class="btn">
                     <div class="wrapper">
                         <p class="text">SUBMIT</p>
 
@@ -93,15 +93,25 @@
                             <th>delete</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>AYMAN</td>
-                            <td>ayman.com</td>
-                            <td><button><i></i>visit <span></span></button></td>
-                            <td><button><i></i>delete <span></span></button></td>
-                        </tr>
+                    <tbody id="bookmarkList">
+
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="validationModal" class="modal d-none">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></span>
+            </div>
+            <div class="modal-body">
+                <h3><strong>Site Name or URL is not valid, Please follow the rules below :</strong></h3>
+                <ul>
+                    <li> Site name must contain at least 3 characters</li>
+                    <li> Site URL must be a valid one</li>
+                </ul>
             </div>
         </div>
     </div>
