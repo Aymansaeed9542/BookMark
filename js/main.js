@@ -2,7 +2,14 @@ let siteName = document.getElementById("siteName");
 let siteUrl = document.getElementById("siteURL");
 
 
-bookMarksList=[];
+if (localStorage.getItem("bookmarks")) {
+    bookMarksList = JSON.parse(localStorage.getItem("bookmarks"));
+    displayBookmark();
+}
+else {
+    bookMarksList = [];
+}
+
 function addBookmark() {
     let name = siteName.value.trim();
     let url = siteUrl.value.trim();
@@ -17,6 +24,7 @@ function addBookmark() {
         bookMarksList.push(obj);
         displayBookmark()
         clearInputs();
+        saveProductsToLocalStorage();
 }
 function validateInputs(name, url) {
     let urlPattern = /^(www\.)?[a-zA-Z0-9-]+\.[a-z]{2,}(\S*)$/;
@@ -56,11 +64,18 @@ function clearInputs() {
 }
 
 function visitSite(url){
+    if (!url.startsWith("http")) {
+        url = "https://" + url;
+    }
     window.open(url, "_blank");
-
 }
 
 function deleteBookmark(index) {
     bookMarksList.splice(index, 1);
     displayBookmark();
+    saveProductsToLocalStorage();
+}
+
+function saveProductsToLocalStorage(){
+    localStorage.setItem("bookmarks", JSON.stringify(bookMarksList));
 }
